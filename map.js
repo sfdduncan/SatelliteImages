@@ -49,10 +49,19 @@ function fetchAndShowSatelliteImage() {
 }
 
 function downloadImage(mapUrl) {
-    const link = document.createElement('a');
-    link.href = mapUrl;
-    link.download = 'satellite_image.png';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    fetch(mapUrl)
+        .then(response => response.blob())
+        .then(blob => {
+            const blobUrl = window.URL.createObjectURL(blob); 
+            const link = document.createElement('a');
+            link.style.display = 'none'; 
+            link.href = blobUrl;
+            link.download = 'satellite_image.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            window.URL.revokeObjectURL(blobUrl); 
+        })
+        .catch(error => console.error('Error downloading the image:'), error));
 }
+    
