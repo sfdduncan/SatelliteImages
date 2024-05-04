@@ -29,7 +29,7 @@ function fetchAndShowSatelliteImage() {
         if (data.status === "OK") {
             const lat = data.results[0].geometry.location.lat;
             const lng = data.results[0].geometry.location.lng;
-            const mapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${lng}&zoom=16&size=600x600&scale=8&maptype=satellite&key=${apiKey}`;
+            const mapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${lng}&zoom=14&size=600x600&scale=4&maptype=satellite&key=${apiKey}`;
 
             const imgElement = document.getElementById('satellite-image');
             imgElement.src = mapUrl;
