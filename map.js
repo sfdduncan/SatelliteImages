@@ -62,6 +62,9 @@ function downloadImage(mapUrl) {
             document.body.removeChild(link);
             window.URL.revokeObjectURL(blobUrl); 
         })
-        .catch(error => console.error('Error downloading the image:', error));
+        .catch(error => { 
+            console.error('Error downloading the image:', error);
+            alert('Error processing your request.'); 
+        });
 }
     
