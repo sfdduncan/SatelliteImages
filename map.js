@@ -18,6 +18,14 @@ map.on('load', function() {
     }), 'bottom-right');
 });
 
+document.getElementById('toggle-button').addEventListener('click', function() {
+    var explanationBox = document.getElementById('explanation-box');
+    if (explanationBox.style.display === 'none') {
+        explanationBox.style.display = 'block';
+    } else {
+        explanationBox.style.display = 'none';
+    }
+});
 function fetchAndShowSatelliteImage() {
     const address = document.getElementById('address-input').value;
     const apiKey = 'AIzaSyDb1roMDXXuQrXRQ2g_aEg0AC8UShb0U-o';
